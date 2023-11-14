@@ -26,8 +26,8 @@
   },
   "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
     "default": {
-      "down": "button-down",
-      "up": "button",
+      "down": "rpg-button-down",
+      "up": "rpg-button",
       "font": "default-font",
       "fontColor": "white",
       "downFontColor": "black",
