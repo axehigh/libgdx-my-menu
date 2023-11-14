@@ -1,0 +1,13 @@
+uiSkin.png
+size:1024,512
+repeat:none
+button
+bounds:304,340,249,80
+button-down
+bounds:304,422,249,80
+check-off
+bounds:304,270,68,68
+check-on
+bounds:555,434,68,68
+panel
+bounds:2,2,300,500
