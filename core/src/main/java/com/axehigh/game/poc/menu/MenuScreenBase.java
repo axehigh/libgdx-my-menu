@@ -23,15 +23,15 @@ public abstract class MenuScreenBase implements Screen {
     public MenuScreenBase(Game game) {
         this.game = game;
         this.assetManager = game.getAssetManager();
+        viewport = new FitViewport(Global.MENU_SCREEN_WIDTH, Global.MENU_SCREEN_HEIGHT);
+        stage = new Stage(viewport, game.getSpriteBatch());
+
+        stage.addActor(createUi());
     }
 
     @Override
     public void show() {
-        viewport = new FitViewport(Global.MENU_SCREEN_WIDTH, Global.MENU_SCREEN_HEIGHT);
-        stage = new Stage(viewport, game.getSpriteBatch());
-
         Gdx.input.setInputProcessor(stage);
-        stage.addActor(createUi());
     }
 
     protected abstract Actor createUi();
@@ -82,7 +82,7 @@ public abstract class MenuScreenBase implements Screen {
 
     @Override
     public void hide() {
-        dispose();
+//        dispose();
     }
 
     @Override
@@ -93,7 +93,7 @@ public abstract class MenuScreenBase implements Screen {
     private void startGame() {
 //        game.setScreen(new LevelScreen(game));
         MyLog.log("Start Game Pressed");
-        dispose();
+//        dispose();
     }
 
     private void exitGame() {

@@ -1,12 +1,13 @@
 package com.axehigh.game.poc.menu;
 
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
-import com.badlogic.gdx.ApplicationAdapter;
+import com.axehigh.game.poc.menu.util.MyLog;
+import com.axehigh.game.poc.menu.util.ScreenManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -20,6 +21,8 @@ public class Game extends com.badlogic.gdx.Game {
     private Skin skin;
     private AssetManager assetManager;
 
+    private Screen menuScreen;
+    private Screen optionScreen;
 
     @Override
     public void create() {
@@ -29,7 +32,13 @@ public class Game extends com.badlogic.gdx.Game {
         assetManager.finishLoading();
         skin = new Skin(Gdx.files.internal(UI_SKIN));
 
-        setScreen(new MenuScreen(this));
+        ScreenManager.initialize(this);
+
+        menuScreen = new MenuScreen(this);
+        optionScreen = new OptionsScreen(this);
+
+        ScreenManager.switchScreen(menuScreen);
+
     }
 
     @Override
@@ -39,6 +48,9 @@ public class Game extends com.badlogic.gdx.Game {
 
     @Override
     public void dispose() {
+        MyLog.log("Game Dispose");
+        menuScreen.dispose();
+        optionScreen.dispose();
         batch.dispose();
         skin.dispose();
         assetManager.dispose();
@@ -50,5 +62,17 @@ public class Game extends com.badlogic.gdx.Game {
 
     public AssetManager getAssetManager() {
         return assetManager;
+    }
+
+    public Screen getMenuScreen() {
+        return menuScreen;
+    }
+
+    public Screen getOptionScreen() {
+        return optionScreen;
+    }
+
+    public SpriteBatch getBatch() {
+        return getSpriteBatch();
     }
 }

@@ -3,6 +3,7 @@ package com.axehigh.game.poc.menu;
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
 import com.axehigh.game.poc.menu.assets.RegionNames;
 import com.axehigh.game.poc.menu.util.MyLog;
+import com.axehigh.game.poc.menu.util.TransitionFadeScreen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -87,7 +88,13 @@ public class OptionsScreen extends MenuScreenBase {
     }
 
     private void back() {
-        game.setScreen(new MenuScreen(game));
+//        game.setScreen(new MenuScreen(game));
+//        ScreenManager.switchScreen(game, this, new MenuScreen(game));
+//        ScreenManager.switchScreenWithTransition(game.getMenuScreen());
+
+        TransitionFadeScreen transitionFadeScreen = new TransitionFadeScreen(game, this, game.getMenuScreen());
+        transitionFadeScreen.startTransition();
+        game.setScreen(transitionFadeScreen);
     }
 
     public static Texture getTexture(String textureName) {

@@ -3,6 +3,7 @@ package com.axehigh.game.poc.menu;
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
 import com.axehigh.game.poc.menu.assets.RegionNames;
 import com.axehigh.game.poc.menu.util.MyLog;
+import com.axehigh.game.poc.menu.util.ScreenManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -108,7 +109,12 @@ public class MenuScreen extends MenuScreenBase {
 
     private void showOptions() {
         MyLog.log("showOptions()");
-        game.setScreen(new OptionsScreen(game));
+//        game.setScreen(new OptionsScreen(game));
+//        ScreenManager.switchScreenWithTransition(game.getOptionScreen());
+
+        ScreenManager.transitionFadeScreen(game, game.getOptionScreen());
+
+//        ScreenManager.switchScreen(game, this, new MenuScreen(game));
     }
 
     private void quit() {
