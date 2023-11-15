@@ -5,13 +5,19 @@ import com.axehigh.game.poc.menu.assets.RegionNames;
 import com.axehigh.game.poc.menu.util.MyLog;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.Scaling;
+
+import static com.axehigh.game.poc.menu.assets.RegionNames.iconSkuld;
 
 /**
  * Created by goran on 1/09/2016.
@@ -69,7 +75,9 @@ public class MenuScreen extends MenuScreenBase {
         });
 
 
-        ImageButton imageButton = new ImageButton(uiskin);
+        //Image Button
+        ImageButton imageButton = getImageButton(uiskin);
+
 
         // setup table
         Table buttonTable = new Table(uiskin);
@@ -90,6 +98,28 @@ public class MenuScreen extends MenuScreenBase {
         table.pack();
 
         return table;
+    }
+
+    private static ImageButton getImageButton(Skin uiskin) {
+//        ImageButton imageButton = new ImageButton(uiskin);
+//        TextureRegion skullIcon = uiskin.getRegion(iconSkuld);
+//        TextureRegionDrawable imageUp = new TextureRegionDrawable(skullIcon);
+//
+//        imageButton.getStyle().imageUp = imageUp;
+
+        //This works
+        ImageButton imageButton = new ImageButton(uiskin);
+        TextureRegion skullIcon = uiskin.getRegion(iconSkuld);
+        TextureRegionDrawable imageUp = new TextureRegionDrawable(skullIcon);
+
+        // Create a Drawable wrapper with scaling
+        Drawable scaledDrawable = new ScalingDrawable(imageUp, Scaling.fit, Align.center, .5f, .5f);
+
+        // Set the scaled Drawable to the imageUp property of the ImageButtonStyle
+        imageButton.getStyle().imageUp = scaledDrawable;
+
+
+        return imageButton;
     }
 
     private void play() {
