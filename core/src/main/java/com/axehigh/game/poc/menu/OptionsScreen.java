@@ -3,7 +3,6 @@ package com.axehigh.game.poc.menu;
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
 import com.axehigh.game.poc.menu.assets.RegionNames;
 import com.axehigh.game.poc.menu.util.MyLog;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -18,9 +17,9 @@ import static com.axehigh.game.poc.menu.util.ImageHelper.getImageButton;
 /**
  * Created by goran on 1/09/2016.
  */
-public class MenuScreen extends MenuScreenBase {
+public class OptionsScreen extends MenuScreenBase {
 
-    public MenuScreen(Game game) {
+    public OptionsScreen(Game game) {
         super(game);
     }
 
@@ -29,10 +28,6 @@ public class MenuScreen extends MenuScreenBase {
         Table table = new Table();
 
         Skin uiskin = assetManager.get(AssetDescriptors.UI_SKIN);
-
-//        TextureAtlas gamePlayAtlas = assetManager.get(AssetDescriptors.GAME_PLAY);
-//        Texture texture = MyAtlas.getTexture(GameGfxName.background);
-//        table.setBackground(new TextureRegionDrawable(texture));
 
         // play button
         TextButton playButton = new TextButton("SELECT LEVEL", uiskin);
@@ -43,30 +38,12 @@ public class MenuScreen extends MenuScreenBase {
             }
         });
 
-        // high score button
-        TextButton highScoreButton = new TextButton("HIGHSCORE", uiskin);
-        highScoreButton.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                showHighScore();
-            }
-        });
-
-        // options button
-        TextButton optionsButton = new TextButton("OPTIONS", uiskin);
-        optionsButton.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                showOptions();
-            }
-        });
-
         // quit button
-        TextButton quitButton = new TextButton("QUIT", uiskin);
-        quitButton.addListener(new ChangeListener() {
+        TextButton backButton = new TextButton("BACK", uiskin);
+        backButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                quit();
+                back();
             }
         });
 
@@ -81,9 +58,7 @@ public class MenuScreen extends MenuScreenBase {
         buttonTable.setBackground(RegionNames.PANEL);
 
         buttonTable.add(playButton).row();
-        buttonTable.add(highScoreButton).row();
-        buttonTable.add(optionsButton).row();
-        buttonTable.add(quitButton);
+        buttonTable.add(backButton);
         buttonTable.add(imageButton);
 
         buttonTable.center();
@@ -108,12 +83,11 @@ public class MenuScreen extends MenuScreenBase {
 
     private void showOptions() {
         MyLog.log("showOptions()");
-        game.setScreen(new OptionsScreen(game));
+//        game.setScreen(new OptionsScreen(game));
     }
 
-    private void quit() {
-        MyLog.log("quit()");
-        Gdx.app.exit();
+    private void back() {
+        game.setScreen(new MenuScreen(game));
     }
 
     public static Texture getTexture(String textureName) {
