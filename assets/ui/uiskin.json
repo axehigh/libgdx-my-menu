@@ -51,5 +51,12 @@
       "downFontColor": "black",
       "overFontColor": "gray"
     }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+    "default": {
+      "up": "rpg-button-icon",
+      "down": "rpg-button-icon-down",
+
+    }
   }
 }

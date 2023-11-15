@@ -6,11 +6,12 @@ import com.axehigh.game.poc.menu.util.MyLog;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.utils.Logger;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  * Created by goran on 1/09/2016.
@@ -67,6 +68,9 @@ public class MenuScreen extends MenuScreenBase {
             }
         });
 
+
+        ImageButton imageButton = new ImageButton(uiskin);
+
         // setup table
         Table buttonTable = new Table(uiskin);
         buttonTable.defaults().pad(20);
@@ -76,6 +80,7 @@ public class MenuScreen extends MenuScreenBase {
         buttonTable.add(highScoreButton).row();
         buttonTable.add(optionsButton).row();
         buttonTable.add(quitButton);
+        buttonTable.add(imageButton);
 
         buttonTable.center();
 
