@@ -13,13 +13,16 @@ public class TransitionFadeScreen implements Screen {
     private float alpha; // Used for fading effect
     private final float transitionDuration = 0.5f; // in seconds
     private boolean transitionStarted = false;
+    private boolean fadeOutCompleted = false;
 
     private Texture pixMap;
+
     public TransitionFadeScreen(Game game, Screen currentScreen, Screen nextScreen) {
         this.game = game;
         this.currentScreen = currentScreen;
         this.nextScreen = nextScreen;
         alpha = 0f;
+
         pixMap = PixMap.getPixMapTexture();
     }
 
@@ -35,15 +38,17 @@ public class TransitionFadeScreen implements Screen {
             currentScreen.render(delta);
         } else {
             // Update alpha based on time elapsed
-            alpha += delta / transitionDuration;
-
-            // Render the current screen
-            currentScreen.render(delta);
-
+            if (!fadeOutCompleted) {
+                alpha += delta / transitionDuration;
+                currentScreen.render(delta);
+            } else {
 //            if (alpha >= 1.0f) {
-//                nextScreen.render(delta);
+                nextScreen.render(delta);
+                alpha -= delta / transitionDuration;
 //                // Render the next screen only when alpha is >= 1.0f
 //            }
+            }
+
 
             Gdx.gl.glEnable(GL20.GL_BLEND);
             Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
@@ -56,6 +61,10 @@ public class TransitionFadeScreen implements Screen {
             // If the transition is complete, switch to the next screen
             if (alpha >= 1.0f) {
                 MyLog.log("Transition complete");
+                fadeOutCompleted = true;
+            }
+            if (alpha < 0.0f && fadeOutCompleted) {
+                MyLog.log("Switching screens");
                 game.setScreen(nextScreen);
             }
         }
@@ -91,5 +100,6 @@ public class TransitionFadeScreen implements Screen {
 
     public void startTransition() {
         transitionStarted = true;
+        fadeOutCompleted = false;
     }
 }
