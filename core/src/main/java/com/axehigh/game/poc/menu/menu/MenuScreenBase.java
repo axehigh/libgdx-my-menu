@@ -1,5 +1,7 @@
-package com.axehigh.game.poc.menu;
+package com.axehigh.game.poc.menu.menu;
 
+import com.axehigh.game.poc.menu.Game;
+import com.axehigh.game.poc.menu.Global;
 import com.axehigh.game.poc.menu.util.MyLog;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

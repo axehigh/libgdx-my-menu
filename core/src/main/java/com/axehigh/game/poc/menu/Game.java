@@ -1,13 +1,13 @@
 package com.axehigh.game.poc.menu;
 
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
+import com.axehigh.game.poc.menu.menu.MenuScreen;
+import com.axehigh.game.poc.menu.menu.OptionsScreen;
 import com.axehigh.game.poc.menu.util.MyLog;
 import com.axehigh.game.poc.menu.util.ScreenManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 

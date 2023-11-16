@@ -1,4 +1,4 @@
-package com.axehigh.game.poc.menu;
+package com.axehigh.game.poc.menu.util;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.utils.BaseDrawable;
