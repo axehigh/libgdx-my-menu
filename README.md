@@ -9,6 +9,7 @@
 * Custom Skin
 * Screen transition 
 * Explore HUD
+* Fonts
 ### Priority Low
 * Google play integration
 * IOS "Play" integration
