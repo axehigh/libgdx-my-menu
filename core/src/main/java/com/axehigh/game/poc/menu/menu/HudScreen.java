@@ -3,9 +3,7 @@ package com.axehigh.game.poc.menu.menu;
 import com.axehigh.game.poc.menu.Game;
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
 import com.axehigh.game.poc.menu.assets.RegionNames;
-import com.axehigh.game.poc.menu.util.MyLog;
 import com.axehigh.game.poc.menu.util.ScreenManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -16,9 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import static com.axehigh.game.poc.menu.assets.RegionNames.iconSkuld;
 import static com.axehigh.game.poc.menu.util.ImageHelper.getImageButton;
 
-public class OptionsScreen extends MenuScreenBase {
+public class HudScreen extends MenuScreenBase {
 
-    public OptionsScreen(Game game) {
+    public HudScreen(Game game) {
         super(game);
     }
 
@@ -29,25 +27,20 @@ public class OptionsScreen extends MenuScreenBase {
         Skin uiskin = assetManager.get(AssetDescriptors.UI_SKIN);
 
         // Main Menu
-        TextButton backButton = new TextButton("BACK", uiskin);
-        backButton.addListener(new ChangeListener() {
+        TextButton mainMenu = new TextButton("MENU", uiskin);
+        mainMenu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 mainMenu();
             }
         });
 
-        //Image Button
-        ImageButton imageButton = getImageButton(uiskin, iconSkuld, 0.8f);
-
-
         // setup table
         Table buttonTable = new Table(uiskin);
         buttonTable.defaults().pad(20);
         buttonTable.setBackground(RegionNames.PANEL);
 
-        buttonTable.add(backButton);
-        buttonTable.add(imageButton);
+        buttonTable.add(mainMenu);
 
         buttonTable.center();
 
@@ -58,5 +51,7 @@ public class OptionsScreen extends MenuScreenBase {
 
         return table;
     }
+
+
 
 }

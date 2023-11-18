@@ -33,6 +33,15 @@ public class MenuScreen extends MenuScreenBase {
             }
         });
 
+        // Hud button
+        TextButton hudButton = new TextButton("HUD", uiskin);
+        hudButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                openHud();
+            }
+        });
+
         // options button
         TextButton optionsButton = new TextButton("OPTIONS", uiskin);
         optionsButton.addListener(new ChangeListener() {
@@ -58,6 +67,7 @@ public class MenuScreen extends MenuScreenBase {
         buttonTable.setBackground(RegionNames.PANEL);
 
         buttonTable.add(playButton).row();
+        buttonTable.add(hudButton).row();
         buttonTable.add(optionsButton).row();
         buttonTable.add(quitButton);
 
@@ -71,9 +81,13 @@ public class MenuScreen extends MenuScreenBase {
         return table;
     }
 
+    private void openHud() {
+        MyLog.log("OPEN HUD");
+        ScreenManager.transitionFadeScreen(game,game.getHudScreen());
+    }
+
     private void play() {
-        MyLog.log("play - select level()");
-//        game.setScreen(new LevelScreen(game));
+        MyLog.log("Play - select level()");
     }
 
     private void showOptions() {

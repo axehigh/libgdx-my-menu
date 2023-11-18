@@ -1,6 +1,7 @@
 package com.axehigh.game.poc.menu;
 
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
+import com.axehigh.game.poc.menu.menu.HudScreen;
 import com.axehigh.game.poc.menu.menu.MenuScreen;
 import com.axehigh.game.poc.menu.menu.OptionsScreen;
 import com.axehigh.game.poc.menu.util.MyLog;
@@ -23,6 +24,7 @@ public class Game extends com.badlogic.gdx.Game {
 
     private Screen menuScreen;
     private Screen optionScreen;
+    private Screen hudScreen;
 
     @Override
     public void create() {
@@ -36,6 +38,7 @@ public class Game extends com.badlogic.gdx.Game {
 
         menuScreen = new MenuScreen(this);
         optionScreen = new OptionsScreen(this);
+        hudScreen = new HudScreen(this);
 
         ScreenManager.switchScreen(menuScreen);
 
@@ -49,8 +52,10 @@ public class Game extends com.badlogic.gdx.Game {
     @Override
     public void dispose() {
         MyLog.log("Game Dispose");
+        hudScreen.dispose();
         menuScreen.dispose();
         optionScreen.dispose();
+
         batch.dispose();
         skin.dispose();
         assetManager.dispose();
@@ -74,5 +79,9 @@ public class Game extends com.badlogic.gdx.Game {
 
     public SpriteBatch getBatch() {
         return getSpriteBatch();
+    }
+
+    public Screen getHudScreen() {
+        return hudScreen;
     }
 }

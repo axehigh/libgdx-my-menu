@@ -3,6 +3,7 @@ package com.axehigh.game.poc.menu.menu;
 import com.axehigh.game.poc.menu.Game;
 import com.axehigh.game.poc.menu.Global;
 import com.axehigh.game.poc.menu.util.MyLog;
+import com.axehigh.game.poc.menu.util.ScreenManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -76,5 +77,8 @@ public abstract class MenuScreenBase implements Screen {
         stage.dispose();
     }
 
+    protected void mainMenu() {
+        ScreenManager.transitionFadeScreen(game, game.getMenuScreen());
+    }
 
 }
