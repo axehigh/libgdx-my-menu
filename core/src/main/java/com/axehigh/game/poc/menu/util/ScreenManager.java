@@ -14,6 +14,11 @@ public class ScreenManager {
         game.setScreen(newScreen);
     }
 
+    public static void transitionFadePixelScreen(Game game, Screen newScreen) {
+        TransitionFadePixelScreen screenEffect = new TransitionFadePixelScreen(game, game.getScreen(), newScreen);
+        screenEffect.startTransition();
+        game.setScreen(screenEffect);
+    }
     public static void transitionFadeScreen(Game game, Screen newScreen) {
         TransitionFadeScreen transitionFadeScreen = new TransitionFadeScreen(game, game.getScreen(), newScreen);
         transitionFadeScreen.startTransition();

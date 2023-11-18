@@ -38,16 +38,10 @@ public abstract class MenuScreenBase implements Screen {
 
     protected abstract Actor createUi();
 
-    private ClickListener exitGameListener() {
-        return new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                exitGame();
-            }
-        };
-    }
+    // Add update logic in here.
+    protected void update() {
 
+    }
 
     @Override
     public void render(float delta) {
@@ -55,16 +49,6 @@ public abstract class MenuScreenBase implements Screen {
         update();
         stage.act();
         stage.draw();
-
-    }
-
-    private void update() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            exitGame();
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            startGame();
-        }
     }
 
     @Override
@@ -92,15 +76,5 @@ public abstract class MenuScreenBase implements Screen {
         stage.dispose();
     }
 
-    private void startGame() {
-//        game.setScreen(new LevelScreen(game));
-        MyLog.log("Start Game Pressed");
-//        dispose();
-    }
-
-    private void exitGame() {
-        MyLog.log("Exit Game Pressed");
-        Gdx.app.exit();
-    }
 
 }
