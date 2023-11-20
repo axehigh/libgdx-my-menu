@@ -11,6 +11,15 @@ public class ScalingDrawable extends BaseDrawable {
     private final float scaleX;
     private final float scaleY;
 
+    public ScalingDrawable(TextureRegionDrawable drawable, float scaleX, float scaleY) {
+        this.drawable = drawable;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+
+        setMinWidth(drawable.getMinWidth() * scaleX);
+        setMinHeight(drawable.getMinHeight() * scaleY);
+    }
+
     public ScalingDrawable(TextureRegionDrawable drawable, Scaling scaling, int align, float scaleX, float scaleY) {
         this.drawable = drawable;
         this.scaleX = scaleX;
