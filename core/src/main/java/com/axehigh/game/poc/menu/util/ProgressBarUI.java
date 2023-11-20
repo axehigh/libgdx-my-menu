@@ -29,7 +29,7 @@ public class ProgressBarUI extends Table {
     private void setIcon(AtlasRegion icon) {
         Image imgIcon = new Image(icon);
         imgIcon.scaleBy(-.5f);
-        imgIcon.setPosition(-(imgIcon.getPrefWidth() / 2) + 12, getHeight() / 2f - (imgIcon.getPrefHeight() * imgIcon.getScaleY() / 2f));
+        imgIcon.setPosition(-(imgIcon.getPrefWidth() / 2) + 24, getHeight() / 2f - (imgIcon.getPrefHeight() * imgIcon.getScaleY() / 2f));
         addActor(imgIcon);
 
     }
@@ -51,7 +51,7 @@ public class ProgressBarUI extends Table {
         super.draw(batch, parentAlpha);
         if (progress > 0) {
             float widthSizeForProgress = BAR_WIDTH * (progress / maxProgress);
-            batch.draw(bar, this.getX() + 25, this.getY() + 2, widthSizeForProgress, BAR_HEIGHT);
+            batch.draw(bar, this.getX() + 32, this.getY() + 2, widthSizeForProgress, BAR_HEIGHT);
         }
     }
 }
