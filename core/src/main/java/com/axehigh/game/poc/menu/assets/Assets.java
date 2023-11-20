@@ -12,7 +12,7 @@ public class Assets {
 
 
     public static void load(Skin skin) {
-        progressBarBackground = new TextureRegionDrawable(skin.getRegion(RegionNames.healthBar));
+        progressBarBackground = new TextureRegionDrawable(skin.getRegion(RegionNames.healthBarBackground));
     }
 
 

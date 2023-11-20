@@ -3,9 +3,6 @@ package com.axehigh.game.poc.menu.menu;
 import com.axehigh.game.poc.menu.Game;
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
 import com.axehigh.game.poc.menu.assets.RegionNames;
-import com.axehigh.game.poc.menu.util.MyLog;
-import com.axehigh.game.poc.menu.util.ScreenManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -13,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
-import static com.axehigh.game.poc.menu.assets.RegionNames.iconSkuld;
+import static com.axehigh.game.poc.menu.assets.RegionNames.iconBlueBottle;
 import static com.axehigh.game.poc.menu.util.ImageHelper.getImageButton;
 
 public class OptionsScreen extends MenuScreenBase {
@@ -38,7 +35,7 @@ public class OptionsScreen extends MenuScreenBase {
         });
 
         //Image Button
-        ImageButton imageButton = getImageButton(uiskin, iconSkuld, 0.8f);
+        ImageButton imageButton = getImageButton(uiskin, iconBlueBottle, 0.8f);
 
 
         // setup table
