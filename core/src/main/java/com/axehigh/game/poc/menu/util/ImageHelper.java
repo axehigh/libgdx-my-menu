@@ -9,7 +9,13 @@ import com.badlogic.gdx.utils.Scaling;
 
 public class ImageHelper {
 
-    public static ImageButton getImageButton(Skin uiskin, String icon,float scale) {
+
+
+    public static TextureRegionDrawable getTextureRegionDrawable(Skin uiSkin, String region) {
+        return new TextureRegionDrawable(uiSkin.getRegion(region));
+    }
+
+    public static ImageButton getImageButton(Skin uiskin, String icon, float scale) {
         //This works
         ImageButton imageButton = new ImageButton(uiskin);
 

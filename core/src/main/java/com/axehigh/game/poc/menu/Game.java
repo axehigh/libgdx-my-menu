@@ -1,6 +1,7 @@
 package com.axehigh.game.poc.menu;
 
 import com.axehigh.game.poc.menu.assets.AssetDescriptors;
+import com.axehigh.game.poc.menu.assets.Assets;
 import com.axehigh.game.poc.menu.menu.HudScreen;
 import com.axehigh.game.poc.menu.menu.MenuScreen;
 import com.axehigh.game.poc.menu.menu.OptionsScreen;
@@ -29,10 +30,13 @@ public class Game extends com.badlogic.gdx.Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
+
         assetManager = new AssetManager();
         assetManager.load(AssetDescriptors.UI_SKIN);
         assetManager.finishLoading();
+
         skin = new Skin(Gdx.files.internal(UI_SKIN));
+        Assets.load(skin);
 
         ScreenManager.initialize(this);
 

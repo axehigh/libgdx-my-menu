@@ -6,4 +6,7 @@ public class RegionNames {
     public static final String PANEL = "panel";
 
     public static final String iconSkuld = "icons/bottle_blue";
+
+    public static final String healthBarLina = "hud/HealthBar_line";
+    public static final String healthBar = "hud/HealhtBar";
 }
